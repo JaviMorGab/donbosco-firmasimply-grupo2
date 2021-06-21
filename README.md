@@ -6,4 +6,4 @@ Intregrantes del grupo "The Codengers" br
 -José Manuel Garrido: Thor Príncipe de Asgard
 -Francisco Javier: Bruce Banner / Hulk
 -Derian: T'Challa / Black Panther
--Moisés: Logan / Lobezno
+-Moisés: Goku
