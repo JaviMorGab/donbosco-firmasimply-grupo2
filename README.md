@@ -8,7 +8,7 @@ ___
 -José Manuel Garrido: Thor Príncipe de Asgard
 ___
 -Francisco Javier: Bruce Banner / Hulk
-__
+___
 -Derian: T'Challa / Black Panther
 ___
 -Moisés: Logan / Lobezno
