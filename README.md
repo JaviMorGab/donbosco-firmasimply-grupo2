@@ -10,6 +10,6 @@ ___
 ___
 ##### -Francisco Javier: Bruce Banner / Hulk 
 ___
-##### -Derian: T'Challa / Black Panthera
+##### -Derian: T'Challa / Black Panther
 ___
 ##### -Moisés: BoostrapMan
