@@ -11,4 +11,4 @@ ___
 ___
 -Derian: T'Challa / Black Panther
 ___
--Moisés: Logan / Lobezno
+-Moisés: BoostrapMan
