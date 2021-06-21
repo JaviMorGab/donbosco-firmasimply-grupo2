@@ -1,14 +1,13 @@
 # donbosco-firmasimply-grupo2
-Proyecto Firmasimply
 ___
-#Intregrantes del grupo "The Codengers" 
+## Intregrantes del grupo "The Codengers" 
 ___
--Manuel Igor: Steve Rogers / Capitán Cádiz
+### -Manuel Igor: Steve Rogers / Capitán América
 ___
--José Manuel Garrido: Thor Príncipe de Bel Air
+### -José Manuel Garrido: Thor Príncipe de Asgar
 ___
--Francisco Javier: Bruce Banner / Hulk Hogan
+### -Francisco Javier: Bruce Banner / Hulk 
 ___
--Derian: T'Challa / Black Panthera Rosa
+### -Derian: T'Challa / Black Panthera
 ___
--Moisés: BoostrapMan
+### -Moisés: BoostrapMan
