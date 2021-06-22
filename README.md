@@ -12,4 +12,4 @@ ___
 ___
 ##### -Derian: T'Challa / Black Panther
 ___
-##### -Moisés: BoostrapMan
+##### -Moisés: BootstrapMan
