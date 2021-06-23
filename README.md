@@ -12,4 +12,4 @@ ___
 ___
 ##### -Derian: T'Challa / Black Panther
 ___
-##### -Moisés: Vegeta
+##### -Moisés: Goku Super Saiyan
