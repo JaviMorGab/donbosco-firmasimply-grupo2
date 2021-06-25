@@ -4,24 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pildoras</title>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"></head>
-     <link rel="stylesheet" href="assets/css/style.css">
+     <link rel="stylesheet" href="pildoras.css">
 <body>
 
   <form action=""  id="formulario">
-
-    <label for="">Nombre</label>
-    <input type="text" name="Nombre" id="nombre"><br>
-    <label for="">Descripción</label>
-    <input type="text" name="description" id="description"><br>
-    <label for="">Fecha creación</label>
-    <input type="date" name="fecha" id="fecha"><br>
-    <button type="submit">CREAR</button>
-  
+    <fieldset>
+      <legend>Introduzca sus datos</legend>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="Nombre" id="nombre"><br>
+        <label for="description">Descripción</label>
+        <input type="text" name="description" id="description"><br>
+        <label for="creacion">Fecha creación</label>
+        <input type="date" name="creacion" id="creacion"><br>
+        <label for="presentacion">Fecha presentación</label>
+        <input type="date" name="presentacion" id="presentacion"><br>
+        <button type="submit">CREAR</button>
+    </fieldset>
   </form>
 
-  <table class="table">
+  <table style="text-align: center" class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
@@ -33,20 +36,24 @@
         <th scope="col">Borrar</th>
       </tr>
     </thead>
+    <!--COMIENZO DEL CONTENIDO DE LA TABLA-->
     <tbody>
       <tr>
-
         <th scope="row">1</th>
-        <td>Juan</td>
-        <td>Otto</td>
-        <td>12/02/2021</td>
-        <td>04/01/2021</td>
-        <td><form class="was-validated"><div class="custom-control custom-checkbox mb-3">
-          <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
-          <label class="custom-control-label" for="customControlValidation1">Presentado</label>
-          <div class="invalid-feedback">pendiente</div>
-        </div>
-        </form>
+        <td>Javi Moreno</td>
+        <td>Responsive Design</td>
+        <td>23/04/2021</td>
+        <td>30/04/2021</td>
+        <td>
+          <div class="parrafo">
+            Pildora presentada: 
+            <div class="checkbox-JASoft">
+                <input type="checkbox" id="checkAvanzado" value="Valor"/>
+                <label for="checkAvanzado"></label>
+            </div>           
+          
+        </td>
+        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
       </tr>      
     </tbody>
   
@@ -54,13 +61,99 @@
     <tbody>
       <tr>
         <th scope="row">2</th>
-        <td>Mark</td>
-        <td>Patos</td>
-        <td>18/02/2021</td>
-        <td>12/01/2021</td>
-        <td>Pendiente1</td>
-        <td><img src="" alt=""></td>
+        <td>Derian</td>
+        <td>Markdown</td>
+        <td>01/05/2021</td>
+        <td>06/05/2021</td>
+        <td>
+          <div class="parrafo">
+            Pildora presentada: 
+            <div class="checkbox-JASoft">
+                <input type="checkbox" id="checkAvanzado" value="Valor"/>
+                <label for="checkAvanzado"></label>
+            </div>  
+        </td>
+        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
       </tr>
+    </tbody>
+
+    <tbody>
+      <tr>
+        <th scope="row">3</th>
+        <td>Manu Mora</td>
+        <td>CSS</td>
+        <td>01/06/2021</td>
+        <td>14/06/2021</td>
+        <td>
+          <div class="parrafo">
+            Pildora presentada: 
+            <div class="checkbox-JASoft">
+                <input type="checkbox" id="checkAvanzado" value="Valor"/>
+                <label for="checkAvanzado"></label>
+            </div>  
+        </td>
+        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+      </tr>      
+    </tbody>
+  
+  
+    <tbody>
+      <tr>
+        <th scope="row">4</th>
+        <td>Jose Manuel</td>
+        <td>Javascript</td>
+        <td>10/06/2021</td>
+        <td>18/06/2021</td>
+        <td>
+          <div class="parrafo">
+            Pildora presentada: 
+            <div class="checkbox-JASoft">
+                <input type="checkbox" id="checkAvanzado" value="Valor"/>
+                <label for="checkAvanzado"></label>
+            </div>  
+        </td>
+        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+      </tr>
+    </tbody>
+
+    <tbody>
+      <tr>
+        <th scope="row">5</th>
+        <td>Moisés</td>
+        <td>Flex Y Grid</td>
+        <td>15/06/2021</td>
+        <td>20/06/2021</td>
+        <td>
+          <div class="parrafo">
+            Pildora presentada: 
+            <div class="checkbox-JASoft">
+                <input type="checkbox" id="checkAvanzado" value="Valor"/>
+                <label for="checkAvanzado"></label>
+            </div>  
+        </td>
+        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+      </tr>      
+    </tbody>
+  
+  
+    <tbody>
+      <tr>
+        <th scope="row">6</th>
+        <td>Jose Manuel</td>
+        <td>Base de Datos</td>
+        <td>20/06/2021</td>
+        <td>01/07/2021</td>
+        <td>
+          <div class="parrafo">
+            Pildora presentada: 
+            <div class="checkbox-JASoft">
+                <input type="checkbox" id="checkAvanzado" value="Valor"/>
+                <label for="checkAvanzado"></label>
+            </div>  
+        </td>
+        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+      </tr>
+    </tbody>
       
   </table>  
 
