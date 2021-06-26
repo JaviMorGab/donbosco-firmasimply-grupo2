@@ -574,7 +574,6 @@ input[type="checkbox"]:focus {
 .tm-footer-link:focus {
   color: #aacbea;
 }
-
 @media (min-width: 1200px) {
   .navbar-expand-xl .navbar-nav .nav-link {
     padding-left: 28px;

@@ -528,6 +528,14 @@ pre code {
     margin-right: -15px;
     margin-left: -15px
 }
+.alinear-perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
 .no-gutters {
     margin-right: 0;
     margin-left: 0
@@ -6779,7 +6787,7 @@ button.bg-dark:hover {
 .mb-2,
 .my-2 {
     text-align: center!important;
-	margin-top: 2rem;
+	padding-top: 1.5rem!important;
 }
 .ml-2,
 .mx-2 {

@@ -115,32 +115,7 @@
 		 transform: rotate(1turn)
 	 }
  }
- .fa-rotate-90 {
-	 -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
-	 transform: rotate(90deg)
- }
- .fa-rotate-180 {
-	 -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
-	 transform: rotate(180deg)
- }
- .fa-rotate-270 {
-	 -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
-	 transform: rotate(270deg)
- }
- .fa-flip-horizontal {
-	 -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
-	 transform: scaleX(-1)
- }
- .fa-flip-vertical {
-	 transform: scaleY(-1)
- }
- .fa-flip-horizontal.fa-flip-vertical,
- .fa-flip-vertical {
-	 -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)"
- }
- .fa-flip-horizontal.fa-flip-vertical {
-	 transform: scale(-1)
- }
+
  :root .fa-flip-horizontal,
  :root .fa-flip-vertical,
  :root .fa-rotate-90,
