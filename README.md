@@ -2,14 +2,14 @@
 ___
 #### Link Notion: https://www.notion.so/ca062818a9aa4bcf85f22110974644ee?v=eb3bdf4046e048109fcb36d7087a3f6b
 ___
-## Intregrantes del grupo "The Codengers" 
+## Intregrantes del grupo: 
 ___
-##### -Manuel Igor: Steve Rogers / Capitán América
+##### -Manuel Igor
 ___
-##### -José Manuel Garrido: Thor Príncipe de Asgar
+##### -José Manuel Garrido
 ___
-##### -Francisco Javier: Bruce Banner / Hulk 
+##### -Francisco Javier
 ___
-##### -Derian: T'Challa / Black Panther
+##### -Derian Batallas
 ___
-##### -Moisés: Goku Super Saiyan
+##### -Moisés
