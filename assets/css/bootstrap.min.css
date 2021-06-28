@@ -535,7 +535,6 @@ pre code {
     justify-content: center;
     text-align: center;
   }
-}
 .no-gutters {
     margin-right: 0;
     margin-left: 0
@@ -1835,7 +1834,9 @@ textarea.form-control {
     height: auto
 }
 .form-group {
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
+    width: 100%;
+    
 }
 .form-text {
     display: block;

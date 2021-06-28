@@ -63,13 +63,13 @@ button:focus {
   margin-bottom: 30px;
 }
 .tm-block {
-  padding: 40px;
+  padding: 50px;
   -webkit-box-shadow: 1px 1px 5px 0 #455c71;
   -moz-box-shadow: 1px 1px 5px 0 #455c71;
   box-shadow: 1px 1px 5px 0 #455c71;
   min-height: 350px;
   height: 100%;
-  max-height: 450px;
+  max-height: 850px;
 }
 .tm-block-avatar,
 .tm-block-settings {
@@ -639,6 +639,11 @@ input[type="checkbox"]:focus {
     padding-left: 15px;
     padding-right: 15px;
   }
+  svg{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
   .navbar-collapse {
     right: 15px;
   }
@@ -651,7 +656,8 @@ input[type="checkbox"]:focus {
     height: auto;
   }
   .tm-block {
-    padding: 30px;
+    padding: 20px;
+    width: 100%;
   }
 }
 @media (max-width: 767px) {
@@ -659,6 +665,7 @@ input[type="checkbox"]:focus {
   .tm-col-avatar {
     width: 100%;
     max-width: 100%;
+    
   }
   .tm-block-avatar {
     display: flex;
@@ -669,6 +676,7 @@ input[type="checkbox"]:focus {
   }
   .tm-hide-sm {
     display: none;
+    width: 100%;
   }
 }
 @media (max-width: 633px) {
@@ -677,6 +685,9 @@ input[type="checkbox"]:focus {
   }
   .custom-select {
     background-position: 96%;
+  }
+  .form-group{
+    width: 100%;
   }
 }
 @media (max-width: 574px) {
@@ -693,16 +704,28 @@ input[type="checkbox"]:focus {
   .tm-site-icon {
     font-size: 2em;
   }
+  .tm-block {
+    padding: 10px;
+    width: 100%;
+  }
 }
 @media (max-width: 480px) {
+  .tm-block {
+    padding: 2px;
+    width: 100%;
+  }
   .tm-mt-big {
     margin-top: 45px;
   }
   .tm-mb-big {
     margin-bottom: 45px;
   }
+  .form-group{
+    width: 100%;
+  }
   #barChart,
   #lineChart {
     max-height: 350px;
   }
+  
 }
