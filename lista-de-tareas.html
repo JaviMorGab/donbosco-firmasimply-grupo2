@@ -34,8 +34,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto h-100">
                         <li class="nav-item">
-                            <a class="nav-link active" href="Index.html">
-                                <i class="fas fa-tachometer-alt"></i> 
+                            <a class="nav-link " href="Index.html">
+                                <i class="fas fa-home"></i> 
                                 Inicio
                                 <span class="sr-only">(current)</span>
                             </a>
@@ -51,7 +51,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="lista-de-tareas.html">
+                            <a class="nav-link active" href="lista-de-tareas.html">
                                 <svg width="32" height="32" fill="currentColor"  viewBox="0 0 16 16">
                                     <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
                                     <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
@@ -61,7 +61,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="perfil.html">
+                            <a class="nav-link a" href="perfil.html">
                                 <i class="far fa-user"></i>
                                 Perfil
                             </a>
@@ -81,7 +81,7 @@
         </nav>
         <!-- Fin NavBar  -->
         <!-- Tareas -->
-    <div class="container mt-5">
+    <div class="container mt-">
       <div class="row tm-content-row">
         <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
           <div class="tm-bg-primary-dark tm-block tm-block-products">
@@ -106,18 +106,6 @@
                     <td>1,450</td>
                     <td>550</td>
                     <td>28 March 2019</td>
-                    <td>
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><input type="checkbox" /></th>
-                    <td class="tm-product-name">Lorem </td>
-                    <td>1,250</td>
-                    <td>750</td>
-                    <td>21 March 2019</td>
                     <td>
                       <a href="#" class="tm-product-delete-link">
                         <i class="far fa-trash-alt tm-product-delete-icon"></i>
@@ -188,12 +176,6 @@
               </table>
             </div>
             <!-- Fin Tareas -->
-            <a
-              href="#"
-              class="btn btn-primary btn-block text-uppercase mb-3">Añadir Tarea</a>
-            <button class="btn btn-primary btn-block text-uppercase">
-              Borrar tareas seleccionadas
-            </button>
           </div>
         </div>
         <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
@@ -220,8 +202,7 @@
                   <option value="5">Python</option>
                 </select>
               </div>
-              <div class="row">
-            <button class="btn btn-primary btn-block text-uppercase mb-3">Añadir Categoría</button>
+            <button class="btn btn-primary btn-block text-uppercase mb-3">Añadir Tarea</button>
           </form>
           </div>
         </div>
@@ -244,5 +225,14 @@
         });
       });
     </script>
+    <style>
+      .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+              color: #F0F8FF;
+              background-color: #CD0B0B;
+          }
+      </style>
+    <script>
+
+  </script>
   </body>
 </html>

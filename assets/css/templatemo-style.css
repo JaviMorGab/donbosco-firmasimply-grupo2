@@ -126,12 +126,12 @@ button:focus {
   color: #fff;
   padding: 15px 30px;
 }
+.navbar-nav .nav-link.active i {
+  color: #fff;
+}
 .navbar-nav .active > .nav-link,
 .navbar-nav .nav-link.active {
   background-color: #f5a623;
-  color: #fff;
-}
-.navbar-nav .nav-link.active i {
   color: #fff;
 }
 .dropdown-item:focus,
@@ -551,6 +551,11 @@ input[type="checkbox"]:focus {
 }
 .navbar-toggler:hover .tm-nav-icon {
   color: #f5a623;
+}
+.navbar-nav .active > .nav-link,
+.navbar-nav .nav-link.active {
+  background-color: #f5a623;
+  color: #fff;
 }
 ::-webkit-scrollbar {
   width: 8px;

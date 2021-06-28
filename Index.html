@@ -32,12 +32,11 @@
                     aria-label="Toggle navigation">
                     <i class="fas fa-bars tm-nav-icon"></i>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto h-100">
                         <li class="nav-item">
                             <a class="nav-link active" href="#">
-                                <i class="fas fa-tachometer-alt"></i> 
+                                <i class="fas fa-home"></i> 
                                 Inicio
                                 <span class="sr-only">(current)</span>
                             </a>
@@ -53,19 +52,23 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="lista-de-tareas.html">
+                               
                                 <svg width="32" height="32" fill="currentColor"  viewBox="0 0 16 16">
                                     <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
                                     <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
                                   </svg>
-                                Lista de Tareas
+                                
+                                <span>Lista de Tareas
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="perfil.html">
+                               
                                 <i class="far fa-user"></i>
-                                Perfil
+                               <span> Perfil</span>
                             </a>
+                       
                         </li>
 
                     </ul>
@@ -87,37 +90,46 @@
                 </div>
             </div>
         <!--Fin Navbar-->
-            <!-- Grafico -->
+            <!-- Confirmar Asistencia -->
             <div class="row tm-content-row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block">
-                        <h2 class="tm-block-title">Asistencia Semanal</h2>
-                        <canvas id="lineChart"></canvas>
+                        <h2 class="tm-block-title">Registrar Asistencia</h2>
+                        <div class="tm-block-title">
+                            <form action="" class="tm-edit-product-form">
+                                <div class="form-group mb-3">
+                                    <label for="name">Agregue una nota</label>
+                                    <input id="name" name="name" type="text" class="form-control validate" required="">
+                                  </div>
+                                  <p>Pulse aquí para confirmar su Asistencia</p>
+                                  <button class="btn btn-primary btn-block text-uppercase mb-3">Confirmar</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <!--Asistencias Recientes-->
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 tm-block-col">
                     <div class="tm-bg-primary-dark tm-block tm-block-taller tm-block-overflow">
-                        <h2 class="tm-block-title">Asistencias Recientes</h2>
+                        <h2 class="tm-block-title">Últimas Asistencias</h2>
                         <div class="tm-notification-items">
                             <div class="media tm-notification-item">
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Jessica</b> ha <b>asistido</b> recientemente.</p>
+                                    <p class="mb-2"><b>Derian</b> ha <b>asistido</b> el dia Lunes.</p>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Sonia</b> ha <b>asistido</b> recientemente.</p>
+                                    <p class="mb-2"><b>Derian</b> ha <b>asistido</b>  el dia Martes</p>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Maria</b> ha <b>asistido</b> recientemente.</p>
+                                    <p class="mb-2"><b>Derian</b> ha <b>asistido</b>  el dia Miércoles</p>
                                 </div>
                             </div>
                             <div class="media tm-notification-item">
                                 <div class="media-body">
-                                    <p class="mb-2"><b>Cristina</b> ha <b>asistido</b> recientemente.</p>
+                                    <p class="mb-2"><b>Derian</b> ha <b>asistido</b>  el dia Jueves</p>
                                 </div>
                             </div>
                         </div>
@@ -264,7 +276,7 @@
         <!-- http://www.chartjs.org/docs/latest/ -->
         <script src="assets/js/bootstrap.min.js"></script>
         <!-- https://getbootstrap.com/ -->
-        <script src="assets/js/tooplate-scripts.js"></script>
+        <script src="assets/js/grafico.js"></script>
         <script>
             Chart.defaults.global.defaultFontColor = 'white';
             let ctxLine,
