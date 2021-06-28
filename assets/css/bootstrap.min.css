@@ -534,6 +534,7 @@ pre code {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding-bottom: 49px;
   }
 .no-gutters {
     margin-right: 0;
@@ -1830,9 +1831,7 @@ select.form-control[multiple],
 select.form-control[size] {
     height: auto
 }
-textarea.form-control {
-    height: auto
-}
+
 .form-group {
     margin-bottom: 1rem;
     width: 100%;
@@ -1892,6 +1891,10 @@ textarea.form-control {
     font-size: 80%;
     color: #28a745
 }
+textarea.form-control {
+    height: 18.6rem;
+    resize:none
+}
 .valid-tooltip {
     position: absolute;
     top: 100%;
@@ -1910,14 +1913,14 @@ textarea.form-control {
 .form-control.is-valid,
 .was-validated .custom-select:valid,
 .was-validated .form-control:valid {
-    border-color: #28a745
+    border-color: #fff
 }
 .custom-select.is-valid:focus,
 .form-control.is-valid:focus,
 .was-validated .custom-select:valid:focus,
 .was-validated .form-control:valid:focus {
-    border-color: #28a745;
-    box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .25)
+    border-color: #fff;
+    box-shadow: #fff
 }
 .custom-select.is-valid~.valid-feedback,
 .custom-select.is-valid~.valid-tooltip,
@@ -3340,23 +3343,23 @@ input[type=submit].btn-block {
     height: calc(2.25rem + 2px);
     padding: .375rem 1.75rem .375rem .75rem;
     line-height: 1.5;
-    color: #495057;
+    color: #fff;
     vertical-align: middle;
     background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center;
     background-size: 8px 10px;
-    border: 1px solid #ced4da;
+    border: 1px solid #fff;
     border-radius: .25rem;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none
 }
 .custom-select:focus {
-    border-color: #80bdff;
+    border-color: #fff;
     outline: 0;
-    box-shadow: 0 0 0 .2rem rgba(128, 189, 255, .5)
+    box-shadow: #fff
 }
 .custom-select:focus::-ms-value {
-    color: #495057;
+    color: #fff;
     background-color: #fff
 }
 .custom-select[multiple],
@@ -3366,7 +3369,7 @@ input[type=submit].btn-block {
     background-image: none
 }
 .custom-select:disabled {
-    color: #6c757d;
+    color: #fff;
     background-color: #e9ecef
 }
 .custom-select::-ms-expand {
@@ -3400,11 +3403,11 @@ input[type=submit].btn-block {
     opacity: 0
 }
 .custom-file-input:focus~.custom-file-label {
-    border-color: #80bdff;
+    border-color: #fff;
     box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
 }
 .custom-file-input:focus~.custom-file-label::after {
-    border-color: #80bdff
+    border-color: #fff
 }
 .custom-file-input:disabled~.custom-file-label {
     background-color: #e9ecef

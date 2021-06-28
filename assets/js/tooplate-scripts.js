@@ -33,7 +33,7 @@ function drawLineChart() {
             label: "Asistencias",
             data: [1, 2, 3, 4, 6, 7, 8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23],
             fill: false,
-            borderColor: "rgb(75, 192, 192)",
+            borderColor: "#0DBED4",
             cubicInterpolationMode: "monotone",
             pointRadius: 5
           }
