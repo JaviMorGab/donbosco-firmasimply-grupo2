@@ -1,170 +1,71 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pildoras</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"></head>
-     <link rel="stylesheet" href="pildoras.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/fontawesome/css/all.css">
+    <link rel="stylesheet" href="pildoras.css">
+    <title>PILDORAS</title>
+</head>
 <body>
 
-  <form action=""  id="formulario">
-    <fieldset>
-      <legend>Introduzca sus datos</legend>
-        <label for="nombre">Nombre</label>
-        <input type="text" name="Nombre" id="nombre"><br>
-        <label for="description">Descripción</label>
-        <input type="text" name="description" id="description"><br>
-        <label for="creacion">Fecha creación</label>
-        <input type="date" name="creacion" id="creacion"><br>
-        <label for="presentacion">Fecha presentación</label>
-        <input type="date" name="presentacion" id="presentacion"><br>
-        <button type="submit">CREAR</button>
-    </fieldset>
-  </form>
+    <div class="container mt-4">
+        <!-- HEADING -->
+        <h1 class="display-4 text-center">
+            <i class="fa fa-book-open text-primary"></i>P<span class="text-primary">ildora</span>S
+        </h1>
 
-  <table style="text-align: center" class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Descripción</th>
-        <th scope="col">Fecha creación</th>
-        <th scope="col">Fecha presentación</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Borrar</th>
-      </tr>
-    </thead>
-    <!--COMIENZO DEL CONTENIDO DE LA TABLA-->
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Javi Moreno</td>
-        <td>Responsive Design</td>
-        <td>23/04/2021</td>
-        <td>30/04/2021</td>
-        <td>
-          <div class="parrafo">
-            Pildora presentada: 
-            <div class="checkbox-JASoft">
-                <input type="checkbox" id="checkAvanzado" value="Valor"/>
-                <label for="checkAvanzado"></label>
-            </div>           
+        <!-- FORM -->
+        <form id="book-form">
+            <div class="form-group">
+                <label for="title">Nombre</label>
+                <input type="text" id="title" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="author">Descripción</label>
+                <input type="text" id="author" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="fechaini">Fecha creación</label>
+                <input type="date" id="fechaini" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="fechap">Fecha presentación</label>
+                <input type="date" id="fechap" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="text">Estado</label>
+                <input type="text" id="estado" class="form-control" />
+            </div>         
           
-        </td>
-        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-      </tr>      
-    </tbody>
-  
-  
-    <tbody>
-      <tr>
-        <th scope="row">2</th>
-        <td>Derian</td>
-        <td>Markdown</td>
-        <td>01/05/2021</td>
-        <td>06/05/2021</td>
-        <td>
-          <div class="parrafo">
-            Pildora presentada: 
-            <div class="checkbox-JASoft">
-                <input type="checkbox" id="checkAvanzado" value="Valor"/>
-                <label for="checkAvanzado"></label>
-            </div>  
-        </td>
-        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-      </tr>
-    </tbody>
 
-    <tbody>
-      <tr>
-        <th scope="row">3</th>
-        <td>Manu Mora</td>
-        <td>CSS</td>
-        <td>01/06/2021</td>
-        <td>14/06/2021</td>
-        <td>
-          <div class="parrafo">
-            Pildora presentada: 
-            <div class="checkbox-JASoft">
-                <input type="checkbox" id="checkAvanzado" value="Valor"/>
-                <label for="checkAvanzado"></label>
-            </div>  
-        </td>
-        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-      </tr>      
-    </tbody>
-  
-  
-    <tbody>
-      <tr>
-        <th scope="row">4</th>
-        <td>Jose Manuel</td>
-        <td>Javascript</td>
-        <td>10/06/2021</td>
-        <td>18/06/2021</td>
-        <td>
-          <div class="parrafo">
-            Pildora presentada: 
-            <div class="checkbox-JASoft">
-                <input type="checkbox" id="checkAvanzado" value="Valor"/>
-                <label for="checkAvanzado"></label>
-            </div>  
-        </td>
-        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-      </tr>
-    </tbody>
+            
+            <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+        </form>
 
-    <tbody>
-      <tr>
-        <th scope="row">5</th>
-        <td>Moisés</td>
-        <td>Flex Y Grid</td>
-        <td>15/06/2021</td>
-        <td>20/06/2021</td>
-        <td>
-          <div class="parrafo">
-            Pildora presentada: 
-            <div class="checkbox-JASoft">
-                <input type="checkbox" id="checkAvanzado" value="Valor"/>
-                <label for="checkAvanzado"></label>
-            </div>  
-        </td>
-        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-      </tr>      
-    </tbody>
-  
-  
-    <tbody>
-      <tr>
-        <th scope="row">6</th>
-        <td>Jose Manuel</td>
-        <td>Base de Datos</td>
-        <td>20/06/2021</td>
-        <td>01/07/2021</td>
-        <td>
-          <div class="parrafo">
-            Pildora presentada: 
-            <div class="checkbox-JASoft">
-                <input type="checkbox" id="checkAvanzado" value="Valor"/>
-                <label for="checkAvanzado"></label>
-            </div>  
-        </td>
-        <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-      </tr>
-    </tbody>
-      
-  </table>  
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th>Nombre</th> <!--Title-->
+                    <th>Descripción</th><!--Author-->
+                    <th>Fecha Creación</th><!--Isbn-->
+                    <th>Fecha Presentación</th><!--Isbn-->
+                    <th>Estado</th>
+                    <th>Action</th><!--Action-->
+                </tr>
+            </thead>
 
-  
+            <tbody id="book-list">
 
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-  <script src="assets/js/main.js"></script>    
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="app.js"></script>
 </body>
 </html>
