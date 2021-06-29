@@ -53,12 +53,11 @@ import Categoria from './Modules/Categoria.js';
 
 
 class task {
-	constructor(nombreTarea, descripcion, categoria, fechaDeCreacion, borrar) {
+	constructor(nombreTarea, descripcion, categoria, fechaDeCreacion) {
 		this.nombreTarea = nombreTarea;
 		this.descripcion = descripcion;
 		this.categoria = categoria;
 		this.fechaDeCreacion = fechaDeCreacion;
-		this.borrar = borrar;
 	}
 }
 const mostrarTareas = [
@@ -66,13 +65,13 @@ const mostrarTareas = [
 		nombreTarea: 'Periodico',
 		categoria: 'html',
 		descripcion: 'Hacerlo Responsive',
-		fechaDeCreacion : '12/06/21'
+		fechaDeCreacion : '2021-06-12'
 	},
 	{
 		nombreTarea: 'Cajas',
 		categoria: 'css',
 		descripcion: 'Usar flex',
-		fechaDeCreacion : '11/04/21'
+		fechaDeCreacion : '2021-04-12'
 	}
 ]
 class UI {
@@ -88,16 +87,15 @@ class UI {
 		<td>${tarea.categoria}</td>
 		<td>${tarea.descripcion}</td>
 		<td>${tarea.fechaDeCreacion}</td>
-		<td><a class="tm-product-delete-link" id="borrarTarea"><i class="far fa-trash-alt tm-product-delete-icon"></i></a></td>
+		<td><a class="tm-product-delete-link" id="borrar	"><i class="far fa-trash-alt tm-product-delete-icon"></i></a></td>
 		`
 		list.appendChild(row)
 	}
-	static clearfields(libro) {
+	static clearfields(tarea) {
 		document.getElementById('nombreTarea').value = '';
 		document.getElementById('categoria').value = '';
 		document.getElementById('descripcion').value = '';
 		document.getElementById('fechaDeCreacion').value = '';
-		document.getElementById('borrar').value = '';
 	}
 	static borrarTarea(target) {
         if(target.classList.contains('borrar'))  {
@@ -128,7 +126,7 @@ function añadirTarea(e) {
 
 }
 
-document.getElementById('listaTareas').addEventListener('click', handleRemove)
+document.getElementById('tarea').addEventListener('click', handleRemove)
 function handleRemove(e) {
   UI.borrarTarea(e.target)
 }
