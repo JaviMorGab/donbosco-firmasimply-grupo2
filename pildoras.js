@@ -12,24 +12,12 @@ class Book {
 // UI Class
 class UI {
     static displayBooks(){        
-    const defaultBooks = [ //esto es un ARRAY
-        {
-            title: 'Book 1',
-            author: 'Brad Traversy',
-            isbn: '12345'
-        },
-        {
-            title: 'Book 2',
-            author: 'Mehul Mohan',
-            isbn: '6789'
-        }
-    ];
-        const books = defaultBooks;
+        const books = Store.getBooks(); // defaultBooks;
         books.forEach ((book) => UI.addBookToList(book));
 
 }
 
-     // FUNCTION TO DISPLAY THE BOOKS IN TABLE
+     // FUNCTION mostrar las PILDORAS en la TABLA
     static displayBooks(){
         let books = Store.getBooks();
 
@@ -38,7 +26,7 @@ class UI {
         // console.log(books);
     }
 
-    // FUNCTION TO ADD A BOOK TO THE TABLE
+    // FUNCTION añadir una PILDORA  a la TABLA
     static addBookToList(book){
         const list = document.querySelector('#book-list');
 
@@ -49,15 +37,14 @@ class UI {
             <td>${book.author}</td>
             <td>${book.fechaini}</td>
             <td>${book.fechap}</td>
-            <td>${book.estado} </td>    
-            
+            <td>${book.estado}</td> 
             <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
         `;
 
         list.appendChild(row);
     }
 
-    // FUNCTION TO CLEAR FIELDS AFTER ADDING THE BOOK
+    // FUNCTION limpiar los campos después de añadir una PILDORA
     static clearFields(){
         document.querySelector('#title').value = '';
         document.querySelector('#author').value = '';
@@ -66,31 +53,31 @@ class UI {
         document.querySelector('#estado').value = '';
     }
 
-    // FUNCTION TO DELETE A BOOK FROM TABLE
+    // FUNCTION borrar la PILDORA de la tabla
     static deleteBook(el){
         if(el.classList.contains('delete')){
             el.parentElement.parentElement.remove();
         }
     }
 
-    // FUNCTION TO SHOW ALERT
+    // FUNCTION mostar ALERTAS
     static showAlerts(message,className){
-        // CREATE ALERT DIV WITH ALL NECESSARY PROPERTIES
+        // CREATE alerta en un DIV  con todas las propiedades
         const div = document.createElement('div');
         div.className = `alert alert-${className}`;
-        // ADD MESSAGE TO THIS DIV
+        // añadir mensajes en el DIV
         div.appendChild(document.createTextNode(message));
-        // ADD DIV TO DOM
+        // añadir el DIV en el DOM
         const container = document.querySelector('.container');
         const form = document.querySelector('#book-form');
         container.insertBefore(div,form);
 
-        // Vanish in 3 seconds
+        // Mostrar las alarmas durante 3 segundos
         setTimeout(() => document.querySelector('.alert').remove(), 3000);
     }
 }
 
-// STORE CLASS : HANDLES STORAGE
+// STORE CLASS : alamacenamiento manual
 class Store {
     static getBooks() {
         let books;
@@ -103,18 +90,18 @@ class Store {
         return books;
       }
 
-    static saveBook(book){
+    static addBook(book){
         let books;
         books = Store.getBooks();
         books.push(book);
         localStorage.setItem('books',JSON.stringify(books));
     }
 
-    static removeBook(isbn){
+    static removeBook(estado){
         const books = Store.getBooks();
 
         books.forEach((book, index) => {
-          if(book.isbn === isbn) {
+          if(book.estado === estado) {
             books.splice(index, 1);
           }
         });
@@ -123,54 +110,54 @@ class Store {
     }
 }
 
-// EVENT: DISPLAY BOOKS
+// EVENT: mostrar PILDORAS
 document.addEventListener('DOMContentLoaded',UI.displayBooks);
 
-// EVENT: ADD BOOK TO LIST 
+// EVENT: añadir PILDORAS A LA LISTA
 document.querySelector('#book-form').addEventListener('submit',(e) => {
     
     // PREVENT DEFAULT
     e.preventDefault();
 
-    // GET VALUES
+    // OBTENER  valores (value)
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const fechaini = document.querySelector('#fechaini').value;//ttttttttttttttttttttttttttttttt
     const fechap = document.querySelector('#fechap').value;
     const estado = document.querySelector('#estado').value;
 
-    //VALIDATE
+    //VALIDACIONES
 
     if(title === '' || author === '' || fechaini === '' || fechap === '' || estado === '') {
         UI.showAlerts('Por favor rellene los campos...','danger');
     } else {
-        // CREATE BOOK OBJECT
+        // creamos el OBJETO book ("pildoras")
         const book = new Book(title,author,fechaini,fechap,estado);
 
-        // ADD BOOK TO LIST
+        // añadir book a la lista
         UI.addBookToList(book);
 
-        // SAVE BOOK TO LOCAL STORAGE
-        Store.saveBook(book);
+        // salvar book en el LOCAL STORAGE
+        Store.addBook(book);
 
-        // SHOW SUCCESS MESSAGE
+        // MOSTAR mensaje de exito SHOW SUCCESS MESSAGE
         UI.showAlerts('Pildora añadida','success');
 
-        // CLEAR FIELDS
+        // LIMPIAR  los campos
         UI.clearFields();
     }
 
 });
 
-// EVENT: REMOVE A BOOK
+// EVENT: quitar un libro
 document.querySelector('#book-list').addEventListener('click',(e) => {
-    //DELETE BOOK FRON UI
+    //BORRAR libro de UI
     UI.deleteBook(e.target);
-    //DELETE BOOK FROM STORE
+    //BORRAR libro del STORE
     Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
-    //SHOW SUCCES MESSAGE
+    //MOSTAR mensaje de exito SUCCES MESSAGE
     UI.showAlerts('Pildora borrada','success');
 });
 
 
-///BLABLA
+///
