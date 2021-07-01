@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tareas</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <!-- https://fonts.google.com/specimen/Roboto -->
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- https://getbootstrap.com/ -->
+    <link rel="stylesheet" href="assets/css/templatemo-style.css">
+    <!--
+	Product Admin CSS Template
+	https://templatemo.com/tm-524-product-admin
+	-->
+</head>
+
+<body id="reportsPage">
+    <div class="" id="home">
+      <!-- NavBar -->
+      <nav class="navbar navbar-expand-xl">
+        <div class="container h-100">
+            <a class="navbar-brand" href="index.html">
+                <h1 class="tm-site-title mb-0">FirmaSimply</h1>
+            </a>
+            <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars tm-nav-icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto h-100">
+                    <li class="nav-item">
+                        <a class="nav-link " href="Index.html">
+                            <i class="fas fa-home"></i> 
+                            Inicio
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="pildoras.html">
+                            <i class="fas fa-pills"></i> 
+                            Pildoras
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tareas.html" id="logout">
+                           
+                            <svg width="32" height="32" fill="currentColor"  viewBox="0 0 16 16">
+                                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                              </svg>
+                            Tareas
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="perfil.html">
+                            <i class="far fa-user"></i>
+                           <span> Perfil</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link d-block" href="login.html" id="logout">
+                         <b>Cerrar Sesión</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+        <!-- Fin NavBar  -->
+        <!-- Tareas -->
+    <div class="container mt-5">
+      <div class="row tm-content-row">
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col">
+          <div class="tm-bg-primary-dark tm-block tm-block-products">
+            <h2 class="tm-block-title">Lista de tareas</h2>
+            <div class="row text-white justify-content-around caption">
+            <h3 id="checkTareas"></h3>
+            <h3 id="tareasPendientes">x Pendientes</h3>
+            <h3 id="tareasCompletadas">x Completadas</h3>
+          </div>
+            <div class="tm-product-table-container">
+              <table class="table table-hover tm-table-small tm-product-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Nombre </th>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Fecha de Creación</th>
+                    <th scope="col">Borrar</th>
+                  </tr>
+                </thead>
+                <tbody id="listaTareas">
+
+                </tbody>
+              </table>
+            </div>
+            <!-- Fin Lista de Tareas -->
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
+           <!-- Crear Tarea -->
+          <div class="tm-bg-primary-dark tm-block tm-block-product-categories">
+            <h2 class="tm-block-title">Crear una Tarea</h2>
+            <form action="" id="formularioTareas" class="tm-edit-product-form">
+              <div class="form-group mb-3">
+                <label for="name" id="name">Nombre de la Tarea</label>
+                <input id="nombreTarea" name="name" type="text" class="form-control validate" required="">
+              </div>
+              <div class="form-group mb-3" >
+                <label for="description" >Descripción</label>
+                <textarea id="descripcion" class="form-control validate" rows="3" required ></textarea>
+              </div>
+              <div class="form-group mb-3">
+                <label for="fechaDeCreacion">Fecha de Creación</label>
+                <input id="fechaDeCreacion" name="creation" type="date" class="form-control validate" required="">
+              </div>
+              <div class="form-group mb-3">
+                <label for="category">Categoría</label>
+                <select class="custom-select tm-select-accounts" id="categoria" required>
+                  <option value="HTML">HTML</option>
+                  <option value="CSS">CSS</option>
+                  <option value="JAVASCRIPT">Javascript</option>
+                  <option value="SQL">SQL</option>
+                  <option value="PYTHON">Python</option>
+                </select>
+              </div>
+              <div class="row">
+            <button type="submit" class="btn btn-primary btn-block text-uppercase mb-3">Añadir Tarea</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin Crear Tareas -->
+    <!-- Footer -->
+    <footer class="tm-footer row tm-mt-small">
+    </footer>
+  <!-- Fin Footer -->
+  <!-- Scripts -->
+      <!-- IMPORTAR LOS SIGUIENTE JS EN TU PÁGINA TAREAS (tareas.html) -->
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script type="module" src="/assets/js/firmasimply/app.js"></script>
+      <script type="module" src="/assets/js/firmasimply/logout.js"></script>
+      <script type="module" src="/assets/js/firmasimply/tareas.js"></script>
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <!-- https://jquery.com/download/ -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+  </body>
+</html>
