@@ -88,20 +88,24 @@
          <form action="" class="tm-edit-product-form">
            <div class="form-group mb-3">
              <label for="name">Nombre</label>
-             <input id="name" name="name" type="text" class="form-control validate" required="">
+             <input id="title" name="name" type="text" class="form-control validate" required="">
            </div>
            <div class="form-group mb-3">
             <label for="description">Descripción</label>
-            <input id="description" name="description" type="text" class="form-control validate" required="">
+            <input id="author" name="description" type="text" class="form-control validate" required="">
           </div>
           <div class="form-group mb-3">
             <label for="creation">Fecha de Creación</label>
-            <input id="creation" name="creation" type="date" class="form-control validate" required="">
+            <input id="fechaini" name="creation" type="date" class="form-control validate" required="">
           </div>
           <div class="form-group mb-3">
             <label for="presentation">Fecha de Presentación</label>
-            <input id="presentation" name="presentation" type="date" class="form-control validate" required="">
+            <input id="fechap" name="presentation" type="date" class="form-control validate" required="">
           </div>
+          <div class="form-group">
+            <label for="text">Estado</label>
+            <input type="text" id="estado" class="form-control" />
+        </div>  
          <button class="btn btn-primary btn-block text-uppercase mb-3">Añadir Pildora</button>
        </form>
        </div>
@@ -119,15 +123,16 @@
                           <th scope="col">&nbsp;</th>
                           <th scope="col">Nombre</th>
                           <th scope="col">Descripción</th>
-                          <th scope="col">Creación</th>
-                          <th scope="col">Presentación</th>
+                          <th scope="col">Fecha Creación</th>
+                          <th scope="col">Fecha Presentación</th>
                           <th scope="col">Estado</th>
                           <th scope="col">Borrar</th>
                           <th scope="col">&nbsp;</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <tr>
+                      <tbody id="book-list"></tbody>
+                        
+                        <!-- <tr>
                           <th scope="row"><input type="checkbox" /></th>
                           <td class="tm-product-name">Javi Moreno</td>
                           <td>Responsive Design</td>
@@ -223,7 +228,7 @@
                             </a>
                           </td>
                         </tr>
-                      </tbody>
+                      </tbody> -->
                     </table>
                   </div>
      		 </div>
