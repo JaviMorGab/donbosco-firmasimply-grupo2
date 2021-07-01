@@ -6,12 +6,10 @@ let contadorTareas = 0;
 let contadorCompletadas = 0;
 let contadorPendientes = 0;
 
-// let isBoss = confirm("¿Seguro que quieres marcarlo como completado?");
-
-// console.log( isBoss ); // true si se pulsa Aceptar, false si se pulsa Cancelar	
-
-
-
+// contadorTareas.onclick = function () {
+// 	contador++;
+// 	numeroContador.textContent = contador;
+// }
 
 class task {
 	constructor(nombreTarea, descripcion, categoria, fechaDeCreacion) {
@@ -48,12 +46,11 @@ class UI {
 		<td>${tarea.categoria}</td>
 		<td>${tarea.descripcion}</td>
 		<td>${tarea.fechaDeCreacion}</td>
-		<td><a href="#" class="tm-product-delete-link" id="checkbox"><i class="far fa-trash-alt tm-product-delete-icon borrar"></i></a></td>
+		<td><a href="#" class="tm-product-delete-link" id="borrar2"><i class="far fa-trash-alt tm-product-delete-icon borrar"></i></a></td>
 		`;
 		list.appendChild(row);
 		let isChecked = document.getElementById('checkTareas').checked;
 		if(isChecked){
-			alert('checkbox esta seleccionado');
 			contadorCompletadas++;
 			console.log("completadas: " + contadorCompletadas);
 		}
@@ -68,16 +65,16 @@ class UI {
 	}
 	static borrarTarea(target) {
 		console.log(target.parentElement.parentElement);
-		let isChecked = document.getElementById('checkTareas').checked;
-		console.log(isChecked);
-        if(target.classList.contains('borrar') && isChecked)  {
+		// let isChecked = document.getElementById('checkTareas').checked;
+		// console.log(isChecked);
+        if(target.classList.contains('borrar'))  {
             target.parentElement.parentElement.parentElement.remove();
 			contadorTareas--;
 			console.log(contadorTareas);
          }
     }
 }
-
+	
 UI.mostrarTareas();
 
 // Event: Add a Tarea
