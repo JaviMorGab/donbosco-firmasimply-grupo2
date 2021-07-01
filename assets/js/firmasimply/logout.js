@@ -1,6 +1,6 @@
 import Auth from './Modules/Auth/Auth.js';
 
-Auth.logout();import Auth from './Modules/Auth/Auth.js';
+Auth.logout();
 
 if(document.querySelector('#logout') != null) {
   const btnLogout = document.querySelector('#logout');

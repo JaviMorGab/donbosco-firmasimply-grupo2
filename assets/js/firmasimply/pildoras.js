@@ -11,6 +11,7 @@ async function getListadoPildoras() {
 let pildora = {
     nombre: 'NPM',
     descripcion: 'Lorem Ipsum',
+    fecha_creacion: newDate(),
     fecha_presentacion: '2021-07-12',
     estado: 0, // 0 pendiente, 1 presentada
     user_id: Auth.getCoder().id, // esta funcion devuelve el id del coder logeado

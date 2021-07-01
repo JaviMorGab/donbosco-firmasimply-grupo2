@@ -1,4 +1,4 @@
-import Auth from './Modules/Auth/Auth.js';
+//import Auth from './Modules/Auth/Auth.js';
 import Tarea from './Modules/Tarea.js';
 import Categoria from './Modules/Categoria.js';
 
@@ -6,13 +6,13 @@ import Categoria from './Modules/Categoria.js';
 // Tarea.getListadoTareas();
 
 // // Funcionalidad crear una tarea
-// let tarea = {
-// 	titulo: 'Tarea nueva',
-// 	descripcion: 'Lorem Ipsum',
-// 	estado: 0, // 0 pendiente, 1 completada
-// 	user_id: Auth.getCoder().id, // esta funcion devuelve el id del coder logeado
-// 	categoria_id: 1,
-// };
+/* let tarea = {
+	titulo: 'Tarea nueva',
+	descripcion: 'Lorem Ipsum',
+	estado: 0, // 0 pendiente, 1 completada
+	user_id: Auth.getCoder().id, // esta funcion devuelve el id del coder logeado
+	categoria_id: 1,
+}; */
 // class Store {
 // 	static añadirTarea(task) {
 //         const tasks = Store.getTasks();
@@ -39,7 +39,7 @@ import Categoria from './Modules/Categoria.js';
 
 // }
 
-// Tarea.crearTarea(tarea);
+ //Tarea.crearTarea(tarea);
 // // Funcionalidad de borrar una tarea
 // let idTarea = 2;
 // Tarea.borrarTarea(idTarea);
@@ -52,7 +52,7 @@ import Categoria from './Modules/Categoria.js';
 // Categoria.getListadoTareas();
 
 
-class task {
+/* class task {
 	constructor(nombreTarea, descripcion, categoria, fechaDeCreacion) {
 		this.nombreTarea = nombreTarea;
 		this.descripcion = descripcion;
@@ -129,5 +129,5 @@ function añadirTarea(e) {
 document.getElementById('tarea').addEventListener('click', handleRemove)
 function handleRemove(e) {
   UI.borrarTarea(e.target)
-}
+} */
 
