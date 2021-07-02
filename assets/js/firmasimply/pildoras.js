@@ -1,5 +1,5 @@
-//import Auth from './Modules/Auth/Auth.js';
-//import Pildora from './Modules/Pildora.js';
+import Auth from './Modules/Auth/Auth.js';
+import Pildora from './Modules/Pildora.js';
 
 class Book {
     constructor(title,author,fechaini,fechap,estado){
@@ -72,10 +72,10 @@ class UI {
         // añadir el DIV en el DOM
         const container = document.querySelector('.container');
         const form = document.querySelector('#book-form');
-        container.insertBefore(div,form);
+        // container.insertBefore(div,form);
 
-        // Mostrar las alarmas durante 3 segundos
-        setTimeout(() => document.querySelector('.alert').remove(), 3000);
+         // Mostrar las alarmas durante 3 segundos
+        // setTimeout(() => document.querySelector('.alert').remove(), 3000);
     }
 }
 

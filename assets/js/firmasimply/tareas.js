@@ -73,6 +73,39 @@ class UI {
 			console.log(contadorTareas);
          }
     }
+
+}
+
+class Store {
+    static getBooks() {
+        let books;
+        if(localStorage.getItem('books') === null) {
+          books = [];
+        } else {
+          books = JSON.parse(localStorage.getItem('books'));
+        }
+    
+        return books;
+      }
+
+    static addBook(book){
+        let books;
+        books = Store.getBooks();
+        books.push(book);
+        localStorage.setItem('books',JSON.stringify(books));
+    }
+
+    static removeBook(estado){
+        const books = Store.getBooks();
+
+        books.forEach((book, index) => {
+          if(book.estado === estado) {
+            books.splice(index, 1);
+          }
+        });
+    
+        localStorage.setItem('books', JSON.stringify(books));
+    }
 }
 	
 UI.mostrarTareas();
