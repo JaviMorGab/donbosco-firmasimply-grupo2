@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Auth from './Modules/Auth/Auth.js';
 import Pildora from './Modules/Pildora.js';
 
@@ -122,6 +123,223 @@ import Pildora from './Modules/Pildora.js';
 //         } else {
 //           books = JSON.parse(localStorage.getItem('books'));
 //         }
+||||||| 38c9c84
+import Auth from './Modules/Auth/Auth.js';
+import Pildora from './Modules/Pildora.js';
+
+// async function getListadoPildoras() {
+//     let res = await Pildora.getListadoPildoras();
+//     console.log(res)
+// }
+
+// // Funcionalidad crear píldora
+// //
+// let pildora = {
+//     nombre: 'NPM',
+//     descripcion: 'Lorem Ipsum',
+//     fecha_presentacion: '2021-07-12',
+//     estado: 0, // 0 pendiente, 1 presentada
+//     user_id: Auth.getCoder().id, // esta funcion devuelve el id del coder logeado
+// };
+
+// Pildora.crearPildora(pildora);
+
+// // Funcionalidad borrar píldora
+// //
+// let idPildora = 2;
+// Tarea.borrarPildora(idPildora);
+
+// // Funcionalidad marcar una píldora como presentada o pendiente
+// //
+// let idPildora = 2;
+// let data = { estado: 1 }; // 1 presentada, 0 pendiente
+// Tarea.marcarPildora(data, idPildora);
+
+
+// // Módulo Píldoras
+
+// // Consultar el listado de píldoras
+// Pildora.getListadoPildoras();
+
+class Book {
+    constructor(title,author,fechaini,fechap,estado){
+        this.title = title;
+        this.author = author;
+        this.fechaini = fechaini;
+        this.fechap = fechap;
+        this.estado = estado;
+    }
+}
+
+// UI Class
+class UI {
+    static displayBooks(){        
+        const books = Store.getBooks(); // defaultBooks;
+        books.forEach ((book) => UI.addBookToList(book));
+
+}
+
+     // FUNCTION mostrar las PILDORAS en la TABLA
+    static displayBooks(){
+        let books = Store.getBooks();
+
+        books.forEach((book) => UI.addBookToList(book));
+
+        // console.log(books);
+    }
+
+    // FUNCTION añadir una PILDORA  a la TABLA
+    static addBookToList(book){
+        const list = document.querySelector('#book-list');
+
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.fechaini}</td>
+            <td>${book.fechap}</td>
+            <td>${book.estado}</td> 
+            <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+        `;
+
+        list.appendChild(row);
+    }
+
+    // FUNCTION limpiar los campos después de añadir una PILDORA
+    static clearFields(){
+        document.querySelector('#title').value = '';
+        document.querySelector('#author').value = '';
+        document.querySelector('#fechaini').value = '';// tttttttttttttttttttt
+        document.querySelector('#fechap').value = '';//ttttttttttttttttttttt
+        document.querySelector('#estado').value = '';
+    }
+
+    // FUNCTION borrar la PILDORA de la tabla
+    static deleteBook(el){
+        if(el.classList.contains('delete')){
+            el.parentElement.parentElement.remove();
+        }
+    }
+
+    // FUNCTION mostar ALERTAS
+    static showAlerts(message,className){
+        // CREATE alerta en un DIV  con todas las propiedades
+        const div = document.createElement('div');
+        div.className = `alert alert-${className}`;
+        // añadir mensajes en el DIV
+        div.appendChild(document.createTextNode(message));
+        // añadir el DIV en el DOM
+        const container = document.querySelector('.container');
+        const form = document.querySelector('#book-form');
+        container.insertBefore(div,form);
+
+        // Mostrar las alarmas durante 3 segundos
+        setTimeout(() => document.querySelector('.alert').remove(), 3000);
+    }
+}
+
+// STORE CLASS : alamacenamiento manual
+class Store {
+    static getBooks() {
+        let books;
+        if(localStorage.getItem('books') === null) {
+          books = [];
+        } else {
+          books = JSON.parse(localStorage.getItem('books'));
+        }
+=======
+//import Auth from './Modules/Auth/Auth.js';
+//import Pildora from './Modules/Pildora.js';
+
+class Book {
+    constructor(title,author,fechaini,fechap,estado){
+        this.title = title;
+        this.author = author;
+        this.fechaini = fechaini;
+        this.fechap = fechap;
+        this.estado = estado;
+    }
+}
+
+// UI Class
+class UI {
+    static displayBooks(){        
+        const books = Store.getBooks(); // defaultBooks;
+        books.forEach ((book) => UI.addBookToList(book));
+
+}
+
+     // FUNCTION mostrar las PILDORAS en la TABLA
+    static displayBooks(){
+        let books = Store.getBooks();
+
+        books.forEach((book) => UI.addBookToList(book));
+
+        // console.log(books);
+    }
+
+    // FUNCTION añadir una PILDORA  a la TABLA
+    static addBookToList(book){
+        const list = document.querySelector('#book-list');
+
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.fechaini}</td>
+            <td>${book.fechap}</td>
+            <td>${book.estado}</td> 
+            <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+        `;
+
+        list.appendChild(row);
+    }
+
+    // FUNCTION limpiar los campos después de añadir una PILDORA
+    static clearFields(){
+        document.querySelector('#title').value = '';
+        document.querySelector('#author').value = '';
+        document.querySelector('#fechaini').value = '';// tttttttttttttttttttt
+        document.querySelector('#fechap').value = '';//ttttttttttttttttttttt
+        document.querySelector('#estado').value = '';
+    }
+
+    // FUNCTION borrar la PILDORA de la tabla
+    static deleteBook(el){
+        if(el.classList.contains('delete')){
+            el.parentElement.parentElement.remove();
+        }
+    }
+
+    // FUNCTION mostar ALERTAS
+    static showAlerts(message,className){
+        // CREATE alerta en un DIV  con todas las propiedades
+        const div = document.createElement('div');
+        div.className = `alert alert-${className}`;
+        // añadir mensajes en el DIV
+        div.appendChild(document.createTextNode(message));
+        // añadir el DIV en el DOM
+        const container = document.querySelector('.container');
+        const form = document.querySelector('#book-form');
+        container.insertBefore(div,form);
+
+        // Mostrar las alarmas durante 3 segundos
+        setTimeout(() => document.querySelector('.alert').remove(), 3000);
+    }
+}
+
+// STORE CLASS : alamacenamiento manual
+class Store {
+    static getBooks() {
+        let books;
+        if(localStorage.getItem('books') === null) {
+          books = [];
+        } else {
+          books = JSON.parse(localStorage.getItem('books'));
+        }
+>>>>>>> 9fbcccd58b7f09ac7c25a25f519cc11f908242c6
     
 //         return books;
 //       }
