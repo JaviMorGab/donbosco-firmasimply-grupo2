@@ -112,7 +112,7 @@
 
           <div class="form-group">
             <label for="estado">Estado</label>
-            <input type="text" id="estado" class="form-control" required=""/>
+            <input type="text" id="estado" class="form-control" required/>
           </div>  
 
         <input type="submit" value="Crear Pildora" class="btn btn-primary btn-block" />
@@ -138,7 +138,7 @@
                           <th>Estado</th>
                           <th>Borrar</th>
                           <!-- <th scope="col">&nbsp;</th> -->
-                        </tr> 
+                        </tr>
                       </thead>
 
                       <tbody id="book-list"></tbody>                       
@@ -156,15 +156,21 @@
 	<!--SCRIPTS-->
 	
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="module" src="assets/js/firmasimply/app.js"></script>
-    <script type="module" src="assets/js/firmasimply/logout.js"></script>
-    <script type="module" src="assets/js/firmasimply/pildoras.js"></script>
+    <script type="module" src="/assets/js/firmasimply/app.js"></script>
+    <script type="module" src="/assets/js/firmasimply/logout.js"></script>
+    <script type="module" src="/assets/js/firmasimply/pildoras.js"></script>
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <!-- https://jquery.com/download/ -->
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- https://getbootstrap.com/ -->
 
-    <script src="assets/js/firmasimply/pildoras.js"></script>
+	<!--<script>
+          $(function() {
+        $(".tm-product-name").on("click", function() {
+          window.location.href = "edit-product.html";
+        });
+      });
+    </script>-->
   
   </body>
 </html>
