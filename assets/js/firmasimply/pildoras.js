@@ -11,7 +11,7 @@ import Pildora from './Modules/Pildora.js';
 
         const row = document.createElement('tr');
         row.id = res[step].id;
-        let numero = 33;
+        
         row.innerHTML = `
             <td>` + res[step].nombre + `</td>
             <td>${res[step].descripcion}</td>
