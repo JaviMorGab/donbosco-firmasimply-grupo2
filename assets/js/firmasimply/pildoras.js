@@ -35,19 +35,25 @@ class UI {
         const row = document.createElement('tr');
 
         row.innerHTML = `
+            <th scope="row"><input type="checkbox" id="checkTareas" checked/></th>
             <td>${book.title}</td>
             <td>${book.author}</td>
             <td>${book.fechaini}</td>
             <td>${book.fechap}</td>
             <td>${book.estado}</td> 
             <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-        `;
+          `;  
+            // <td><a href="#" class="tm-product-delete-link delete" id="borrar2"><i class="far fa-trash-alt tm-product-delete-icon borrar "></a></td>
+
+            
+        
 
         list.appendChild(row);
     }
 
     // FUNCTION limpiar los campos después de añadir una PILDORA
     static clearFields(){
+        document.querySelector('#checkTareas').value = '';
         document.querySelector('#title').value = '';
         document.querySelector('#author').value = '';
         document.querySelector('#fechaini').value = '';// tttttttttttttttttttt
@@ -122,6 +128,7 @@ document.querySelector('#book-form').addEventListener('submit',(e) => {
     e.preventDefault();
 
     // OBTENER  valores (value)
+    const check = document.querySelector('#checkTareas').value;
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const fechaini = document.querySelector('#fechaini').value;//ttttttttttttttttttttttttttttttt
@@ -160,3 +167,10 @@ document.querySelector('#book-list').addEventListener('click',(e) => {
     //MOSTAR mensaje de exito SUCCES MESSAGE
     UI.showAlerts('Pildora borrada','success');
 });
+
+form.addEventListener("click",() =>{
+
+
+    let checked = document.querySelector('input[type="checkbox"]:checked');
+    result.innerText = checkbox.value;
+})
