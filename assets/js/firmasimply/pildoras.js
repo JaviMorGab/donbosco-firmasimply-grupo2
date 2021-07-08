@@ -1,46 +1,62 @@
 import Auth from './Modules/Auth/Auth.js';
-import Pildora from './Modules/Pildora.js';
+import PildoraAPI from './Modules/Pildora.js';
 
-class Book {
-    constructor(title,author,fechaini,fechap,estado){
-        this.title = title;
-        this.author = author;
-        this.fechaini = fechaini;
-        this.fechap = fechap;
+class Pildora {
+    constructor(nombre,descripcion,fecha_presentacion,estado,){
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha_presentacion = fecha_presentacion;
         this.estado = estado;
     }
 }
+async function displayPildoras(){        
+    const listadoPildoras = await PildoraAPI.getListadoPildoras(); // Consultar el listado a la API;
+    //console.log(listadoPildoras);
+    
+    const list = document.querySelector('#pildora-list');
+
+        const row = document.createElement('tr');
+
+        let array = [];
+        for (let i = 0; i < 6; i++){
+
+       
+        row.innerHTML = `
+        
+            <td>${array[i].nombre}</td>
+            <td>${array[i].descripcion}</td>
+            <td>${array[i].fecha_presentacion}</td>
+            <td>${array[i].estado}</td>
+            <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+          `;  
+        list.appendChild(row);
+        }
+       
+}
+PildoraAPI.crearPildora(pildora);{    
+        let pildora = Store.getPildoras();
+        pildora.push(pildora);
+        localStorage.setItem('pildoras',JSON.stringify(pildoras));
+}
+
+
+
 
 // UI Class
 class UI {
-    static displayBooks(){        
-        const books = Store.getBooks(); // defaultBooks;
-        books.forEach ((book) => UI.addBookToList(book));
 
-}
-
-     // FUNCTION mostrar las PILDORAS en la TABLA
-    static displayBooks(){
-        let books = Store.getBooks();
-
-        books.forEach((book) => UI.addBookToList(book));
-
-        // console.log(books);
-    }
-
-    // FUNCTION añadir una PILDORA  a la TABLA
-    static addBookToList(book){
-        const list = document.querySelector('#book-list');
+/*    // FUNCTION añadir una PILDORA  a la TABLA
+    static addPildoraToList(pildora){
+        const list = document.querySelector('#pildora-list');
 
         const row = document.createElement('tr');
 
         row.innerHTML = `
             
-            <td>${book.title}</td>
-            <td>${book.author}</td>
-            <td>${book.fechaini}</td>
-            <td>${book.fechap}</td>
-            <td>${book.estado}</td> 
+            <td>${pildora.nombre}</td>
+            <td>${pildora.descripcion}</td>
+            <td>${pildora.fecha_presentacion}</td>
+            <td>${pildora.estado}</td> 
             <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
           `;  
             
@@ -49,19 +65,17 @@ class UI {
 
         list.appendChild(row);
     }
-
+*/
     // FUNCTION limpiar los campos después de añadir una PILDORA
     static clearFields(){
-        // document.querySelector('#checkTareas').value = '';
-        document.querySelector('#title').value = '';
-        document.querySelector('#author').value = '';
-        document.querySelector('#fechaini').value = '';// tttttttttttttttttttt
-        document.querySelector('#fechap').value = '';//ttttttttttttttttttttt
+        document.querySelector('#nombre').value = '';
+        document.querySelector('#descripcion').value = '';
+        document.querySelector('#fecha_presentacion').value = '';
         document.querySelector('#estado').value = '';
     }
 
     // FUNCTION borrar la PILDORA de la tabla
-    static deleteBook(el){
+    static deletePildora(el){
         if(el.classList.contains('delete')){
             el.parentElement.parentElement.remove();
         }
@@ -76,77 +90,44 @@ class UI {
         div.appendChild(document.createTextNode(message));
         // añadir el DIV en el DOM
         const container = document.querySelector('.container');
-        const form = document.querySelector('#book-form');
-        // container.insertBefore(div,form);
+        const form = document.querySelector('#pildora-form');
+        container.insertBefore(div,form);
 
          // Mostrar las alarmas durante 3 segundos
         // setTimeout(() => document.querySelector('.alert').remove(), 3000);
     }
-}
+} 
 
-// STORE CLASS : alamacenamiento manual
-class Store {
-    static getBooks() {
-        let books;
-        if(localStorage.getItem('books') === null) {
-          books = [];
-        } else {
-          books = JSON.parse(localStorage.getItem('books'));
-        }
-    
-        return books;
-      }
-
-    static addBook(book){
-        let books;
-        books = Store.getBooks();
-        books.push(book);
-        localStorage.setItem('books',JSON.stringify(books));
-    }
-
-    static removeBook(estado){
-        const books = Store.getBooks();
-
-        books.forEach((book, index) => {
-          if(book.estado === estado) {
-            books.splice(index, 1);
-          }
-        });
-    
-        localStorage.setItem('books', JSON.stringify(books));
-    }
-}
 
 // EVENT: mostrar PILDORAS
-document.addEventListener('DOMContentLoaded',UI.displayBooks);
+document.addEventListener('DOMContentLoaded',displayPildoras);
 
 // EVENT: añadir PILDORAS A LA LISTA
-document.querySelector('#book-form').addEventListener('submit',(e) => {
+ document.querySelector('#pildora-form').addEventListener('submit',(e) => {
     
     // PREVENT DEFAULT
     e.preventDefault();
 
     // OBTENER  valores (value)
     
-    const title = document.querySelector('#title').value;
-    const author = document.querySelector('#author').value;
-    const fechaini = document.querySelector('#fechaini').value;//ttttttttttttttttttttttttttttttt
-    const fechap = document.querySelector('#fechap').value;
+    const nombre = document.querySelector('#nombre').value;
+    const descripcion = document.querySelector('#descripcion').value;
+    const fecha_presentacion = document.querySelector('#fecha_presentacion').value;
     const estado = document.querySelector('#estado').value;
 
     //VALIDACIONES
 
-    if(title === '' || author === '' || fechaini === '' || fechap === '' || estado === '') {
+    if(nombre === '' || descripcion === '' || fecha_presentacion === '' || estado === '') {
         UI.showAlerts('Por favor rellene los campos...','danger');
     } else {
-        // creamos el OBJETO book ("pildoras")
-        const book = new Book(title,author,fechaini,fechap,estado);
+        // creamos el OBJETO pildora ("pildoras")
+        const pildora = new Pildora(nombre,descripcion,fecha_presentacion,estado);
 
-        // añadir book a la lista
-        UI.addBookToList(book);
+        // añadir pildora a la lista
+        UI.addPildoraToList(pildora);
 
-        // salvar book en el LOCAL STORAGE
-        Store.addBook(book);
+        // salvar Pildora en el LOCAL STORAGE
+        Store.addPildora(pildora);
 
         // MOSTAR mensaje de exito SHOW SUCCESS MESSAGE
         UI.showAlerts('Pildora añadida','success');
@@ -155,15 +136,15 @@ document.querySelector('#book-form').addEventListener('submit',(e) => {
         UI.clearFields();
     }
 
-});
+}); 
 
-// EVENT: quitar un libro
-document.querySelector('#book-list').addEventListener('click',(e) => {
-    //BORRAR libro de UI
-    UI.deleteBook(e.target);
-    //BORRAR libro del STORE
-    Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
+// EVENT: quitar una Pildora
+document.querySelector('#pildora-list').addEventListener('click',(e) => {
+    //BORRAR pildora de UI
+    UI.deletePildora(e.target);
+    //BORRAR pildora del STORE
+    Store.removePildora(e.target.parentElement.previousElementSibling.textContent);
     //MOSTAR mensaje de exito SUCCES MESSAGE
     UI.showAlerts('Pildora borrada','success');
-});
+}); 
 
