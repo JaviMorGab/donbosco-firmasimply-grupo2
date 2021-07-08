@@ -13,7 +13,7 @@ let entrada = document.getElementById("entrada");
         e.preventDefault()
         let firmaEntrada = {
             user_id: Auth.getCoder().id,
-            nota: 'texto test',
+            nota: document.getElementById('nota'),
             estado: 1 // 1 para entrada, 0 para salida
         };
         Asistencia.firmar(firmaEntrada);
@@ -27,7 +27,7 @@ let salida = document.getElementById("salida");
         e.preventDefault()
         let firmaSalida = {
             user_id: Auth.getCoder().id,
-            nota: 'texto test',
+            nota: document.getElementById('nota'),
             estado: 0 // 1 para entrada, 0 para salida
     };
     Asistencia.firmar(firmaSalida);

@@ -1,43 +1,32 @@
 import Auth from './Modules/Auth/Auth.js';
 import Tarea from './Modules/Tarea.js';
 import Categoria from './Modules/Categoria.js';
+import { listadoTareas } from './Modules/API/llamadasApi.js';
 
-let contadorTareas = 0;
-let contadorCompletadas = 0;
-let contadorPendientes = 0;
+// let contadorTareas = 0;
+// let contadorCompletadas = 0;
+// let contadorPendientes = 0;
 
 // contadorTareas.onclick = function () {
 // 	contador++;
 // 	numeroContador.textContent = contador;
 // }
 
+
 class task {
-	constructor(nombreTarea, descripcion, categoria, fechaDeCreacion) {
-		this.nombreTarea = nombreTarea;
+	constructor(titulo, descripcion, estado, user_id, categoria_id) {
+		this.titulo = titulo;
 		this.descripcion = descripcion;
-		this.categoria = categoria;
-		this.fechaDeCreacion = fechaDeCreacion;
+		this.estado = estado;
+		this.user_id = user_id;
+		this.categoria_id = categoria_id;
 	}
 }
-	const defaultTareas = [
-		{
-		nombreTarea: 'Periodico',
-		categoria: 'HTML',
-		descripcion: 'Hacerlo Responsive',
-		fechaDeCreacion : '2021-06-12'
-	},
-	{
-		nombreTarea: 'Cajas',
-		categoria: 'CSS',
-		descripcion: 'Usar flex',
-		fechaDeCreacion : '2021-04-12'
-	}
-]
-class UI {
-	static mostrarTareas() {
-		defaultTareas.forEach(tarea => UI.addTareaToList(tarea))
-	}
-	static addTareaToList(tarea) {
+mostrarTareas()
+async function mostrarTareas() {
+	
+		const  listadoTareas = await Tarea.getListadoTareas();
+		console.log(listadoTareas)
 		const list = document.getElementById('listaTareas')
 		const row = document.createElement('tr')
 		row.innerHTML = `
@@ -49,84 +38,60 @@ class UI {
 		<td><a href="#" class="tm-product-delete-link" id="borrar2"><i class="far fa-trash-alt tm-product-delete-icon borrar"></i></a></td>
 		`;
 		list.appendChild(row);
-		let isChecked = document.getElementById('checkTareas').checked;
-		if(isChecked){
-			contadorCompletadas++;
-			console.log("completadas: " + contadorCompletadas);
-		}
-		contadorTareas++;
-		console.log(contadorTareas);
+		// let isChecked = document.getElementById('checkTareas').checked;
+		// if(isChecked){
+		// 	contadorCompletadas++;
+		// 	console.log("completadas: " + contadorCompletadas);
+		// }
 	}
+class UI {
+	
+	
 	static limpiarCampos() {
 		document.getElementById('nombreTarea').value = '';
 		document.getElementById('categoria').value = '';
 		document.getElementById('descripcion').value = '';
-		document.getElementById('fechaDeCreacion').value = '';
+		Categoria.getListadoCategorias();
 	}
 	static borrarTarea(target) {
 		console.log(target.parentElement.parentElement);
-		// let isChecked = document.getElementById('checkTareas').checked;
-		// console.log(isChecked);
+		let isChecked = document.getElementById('checkTareas').checked;
+		console.log(isChecked);
         if(target.classList.contains('borrar'))  {
             target.parentElement.parentElement.parentElement.remove();
-			contadorTareas--;
-			console.log(contadorTareas);
-         }
+			
+			Tarea.borrarTarea(idTarea);
     }
+  }
 
 }
 
-class Store {
-    static getBooks() {
-        let books;
-        if(localStorage.getItem('books') === null) {
-          books = [];
-        } else {
-          books = JSON.parse(localStorage.getItem('books'));
-        }
-    
-        return books;
-      }
+let idTarea = 2;
 
-    static addBook(book){
-        let books;
-        books = Store.getBooks();
-        books.push(book);
-        localStorage.setItem('books',JSON.stringify(books));
-    }
 
-    static removeBook(estado){
-        const books = Store.getBooks();
 
-        books.forEach((book, index) => {
-          if(book.estado === estado) {
-            books.splice(index, 1);
-          }
-        });
-    
-        localStorage.setItem('books', JSON.stringify(books));
-    }
-}
-	
-UI.mostrarTareas();
 
 // Event: Add a Tarea
 document.querySelector('#formularioTareas').addEventListener('submit', añadirTarea, false);
 
-function añadirTarea(e) {
+async function añadirTarea(e) {
 	// prevent actual submission
 	e.preventDefault();
 	
 	// Capturar los valores del Form
-	const nombreTarea = document.getElementById('nombreTarea').value;
+	const titulo = document.getElementById('nombreTarea').value;
 	const descripcion = document.getElementById('descripcion').value;
-	const categoria = document.getElementById('categoria').value;
-	const fechaDeCreacion = document.getElementById('fechaDeCreacion').value;
+	const estado = 0;
+	const user_id =  Auth.getCoder().id;
+	const categoria_id = 1;
+	
 
-	// Crear un nuevo objeto book
-	const tarea = new task(nombreTarea, descripcion, categoria, fechaDeCreacion);
-	// Añadir el objeto book creado a UI (mostrarlo en HTML)
-	UI.addTareaToList(tarea);
+	// Crear un nuevo objeto 
+	const tarea = new task(titulo, descripcion, estado, user_id, categoria_id);
+	// Añadir el objeto  creado a UI (mostrarlo en HTML)
+
+	Tarea.crearTarea(tarea);
+
 	UI.limpiarCampos();
 
 }
