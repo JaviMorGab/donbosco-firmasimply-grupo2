@@ -22,7 +22,7 @@ class task {
 		this.categoria_id = categoria_id;
 	}
 }
-mostrarTareas()
+
 async function mostrarTareas() {
 	
 		const  listadoTareas = await Tarea.getListadoTareas();
@@ -31,10 +31,10 @@ async function mostrarTareas() {
 		const row = document.createElement('tr')
 		row.innerHTML = `
 		<th scope="row"><input type="checkbox" id="checkTareas" checked/></th>
-		<td>${tarea.nombreTarea}</td>
-		<td>${tarea.categoria}</td>
-		<td>${tarea.descripcion}</td>
-		<td>${tarea.fechaDeCreacion}</td>
+		<td>${Tarea.titulo}</td>
+		<td>${Tarea.descripcion}</td>
+		<td>${Tarea.estado}</td>
+		<td>${Tarea.categoria_id}</td>
 		<td><a href="#" class="tm-product-delete-link" id="borrar2"><i class="far fa-trash-alt tm-product-delete-icon borrar"></i></a></td>
 		`;
 		list.appendChild(row);
@@ -44,6 +44,7 @@ async function mostrarTareas() {
 		// 	console.log("completadas: " + contadorCompletadas);
 		// }
 	}
+	console.log(mostrarTareas())
 class UI {
 	
 	
@@ -59,7 +60,6 @@ class UI {
 		console.log(isChecked);
         if(target.classList.contains('borrar'))  {
             target.parentElement.parentElement.parentElement.remove();
-			
 			Tarea.borrarTarea(idTarea);
     }
   }
@@ -67,8 +67,6 @@ class UI {
 }
 
 let idTarea = 2;
-
-
 
 
 // Event: Add a Tarea
