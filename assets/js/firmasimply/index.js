@@ -34,31 +34,29 @@ let salida = document.getElementById("salida");
 }
 console.log(respuesta)
 
-// ----------------Ult firmas------------
+// ----------------Ultimas firmas------------
 
 
-let ultimaFirma = respuesta.slice(respuesta.length -4);
+let listaUltimasFirmasOrdenada = respuesta.slice(respuesta.length -4).reverse();
 
-    function entradaoSalida () {
+const nombreUsuario = Auth.getCoder().name;
 
-        if (ultimaFirma.estado == 1){ return "entrada"}
-        else if (ultimaFirma.estado == 0) { return "salida"}
+function comprobarEstadoAsistencia (estadoAsistencia) {
+    if (estadoAsistencia == 1) { 
+        return "entrada";
+    } else if (estadoAsistencia == 0) { 
+        return "salida";
     }
+}
 
-  let nombreUsuario = Auth.getCoder().name;
-    let primeraFirma = document.getElementById("firmaUno") ;
-    primeraFirma.innerHTML = "<b>" + nombreUsuario + "</b>" + "ha confirmado su " + entradaoSalida(ultimaFirma[0])
+let elementoUltimasFirmas = document.getElementById('ultimasFirmas');
 
-    let segundaFirma = document.getElementById("firmaDos") ;
-    segundaFirma.innerHTML = "<b>" + nombreUsuario + "</b>" + "ha confirmado su "+ entradaoSalida(ultimaFirma[1])
-
-    let terceraFirma = document.getElementById("firmaTres") ;
-    terceraFirma.innerHTML = "<b>" + nombreUsuario + "</b>" + "ha confirmado su "+ entradaoSalida(ultimaFirma[2])
-
-    let cuartaFirma = document.getElementById("firmaCuatro") ;
-    cuartaFirma.innerHTML = "<b>" + nombreUsuario + "</b>" + "ha confirmado su "+ entradaoSalida(ultimaFirma[3])
-
-    console.log(ultimaFirma)
+for(let i = 0; i < 4; i++){
+    let firma = document.createElement('div');
+    firma.classList.add("media", "tm-notification-item");
+    firma.innerHTML = `<div class="media-body"><p class="mb-2" id="firmaUno"> ${listaUltimasFirmasOrdenada[i].id} <b>${nombreUsuario}</b> ha confirmado su <b>${comprobarEstadoAsistencia(listaUltimasFirmasOrdenada[i].estado)}</b></p></div>`
+    elementoUltimasFirmas.appendChild(firma)
+}
 
 
 
