@@ -12,7 +12,6 @@ import { listadoTareas } from './Modules/API/llamadasApi.js';
 // 	numeroContador.textContent = contador;
 // }
 
-
 class task {
 	constructor(titulo, descripcion, estado, user_id, categoria_id) {
 		this.titulo = titulo;
