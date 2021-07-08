@@ -54,13 +54,8 @@ let elementoUltimasFirmas = document.getElementById('ultimasFirmas');
 for(let i = 0; i < 4; i++){
     let firma = document.createElement('div');
     firma.classList.add("media", "tm-notification-item");
-<<<<<<< HEAD
     firma.innerHTML = `<div class="media-body"><p class="mb-2" id="firmaUno"> ${listaUltimasFirmasOrdenada[i].id} <b>${nombreUsuario}</b> ha confirmado su <b>${comprobarEstadoAsistencia(listaUltimasFirmasOrdenada[i].estado)}</b></p></div>`
     elementoUltimasFirmas.appendChild(firma)
-=======
-    firma.innerHTML = `<div class="media-body"><p class="mb-2" id="firmaUno"> ${listaUltimasFirmasOrdenada[i].id} <b>${nombreUsuario}</b> ha confirmado su ${comprobarEstadoAsistencia(listaUltimasFirmasOrdenada[i].estado)}</p></div>`
-    elementoUltimasFirmas.appendChild(firma);
->>>>>>> listaPildoras
 }
 
 
