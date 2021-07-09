@@ -1,150 +1,135 @@
-import Auth from './Modules/Auth/Auth.js';
-import PildoraAPI from './Modules/Pildora.js';
 
+// Book Class: Represents a Book
 class Pildora {
-    constructor(nombre,descripcion,fecha_presentacion,estado,){
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fecha_presentacion = fecha_presentacion;
-        this.estado = estado;
+	constructor(nombre, descripcion, fechac, fechap) {
+		this.nombre = nombre
+		this.descripcion = descripcion
+		this.fechac = fechac //fecha creacion
+		this.fechap = fechap // fecha presentacion
+	}
+	
+}
+
+
+class Store {
+	static addPildora(pildora) {
+        const pildoras = Store.getPildoras();
+        pildoras.push(pildora);
+        localStorage.setItem('pildoras', JSON.stringify(pildoras));
+    }
+	static removePildora(fechac) {
+        const pildoras = Store.getPildoras();
+        pildoras.forEach((pildora, index) => {
+            if(pildora.fechac === fechac){
+                pildoras.splice(index, 1);
+            }
+        });
+        localStorage.setItem('pildoras', JSON.stringify(pildoras));
+    }
+	static getPildoras() {
+        let pildoras = localStorage.getItem('pildoras');
+        if(pildoras === null) {
+            return [];
+        } else {
+            return JSON.parse(pildoras);
+        }
     }
 }
-async function displayPildoras(){        
-    const listadoPildoras = await PildoraAPI.getListadoPildoras(); // Consultar el listado a la API;
-    //console.log(listadoPildoras);
-    
-    const list = document.querySelector('#pildora-list');
 
-        const row = document.createElement('tr');
-
-        let array = [];
-        for (let i = 0; i < 6; i++){
-
-       
-        row.innerHTML = `
-        
-            <td>${array[i].nombre}</td>
-            <td>${array[i].descripcion}</td>
-            <td>${array[i].fecha_presentacion}</td>
-            <td>${array[i].estado}</td>
-            <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-          `;  
-        list.appendChild(row);
-        }
-       
-}
-PildoraAPI.crearPildora(pildora);{    
-        let pildora = Store.getPildoras();
-        pildora.push(pildora);
-        localStorage.setItem('pildoras',JSON.stringify(pildoras));
-}
-
-
-
-
-// UI Class
+// UI Class: Handle UI Tasks
 class UI {
+	static showAlert(message, className) {
+		const div = document.createElement('div')
+		div.innerText = message
+		div.className = `alert alert-${className}`
+		document.getElementById('pildora-form').prepend(div)
 
-/*    // FUNCTION añadir una PILDORA  a la TABLA
-    static addPildoraToList(pildora){
-        const list = document.querySelector('#pildora-list');
+		setTimeout(() => {
+			div.remove()
+		}, 2000)
+	}
 
-        const row = document.createElement('tr');
+	static deletePildora(target) {
+		if (target.classList.contains('delete')) {
+			// we clicked the X icon
+			target.parentElement.parentElement.remove()
+		}
+	}
+	static clearFields() {
+		const nombre = document.getElementById('nombre')
+		const descripcion = document.getElementById('descripcion')
+		const fechac = document.getElementById('fechac')
+		nombre.value = ''
+		descripcion.value = ''
+		fechac.value = ''
+	}
 
-        row.innerHTML = `
-            
-            <td>${pildora.nombre}</td>
-            <td>${pildora.descripcion}</td>
-            <td>${pildora.fecha_presentacion}</td>
-            <td>${pildora.estado}</td> 
-            <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
-          `;  
-            
-            
-        
+	static displayPildoras() {
+		const pildoras = Store.getPildoras();
+		pildoras.forEach((pildora) => UI.addPildoraToList(pildora))
+	}
 
-        list.appendChild(row);
-    }
-*/
-    // FUNCTION limpiar los campos después de añadir una PILDORA
-    static clearFields(){
-        document.querySelector('#nombre').value = '';
-        document.querySelector('#descripcion').value = '';
-        document.querySelector('#fecha_presentacion').value = '';
-        document.querySelector('#estado').value = '';
-    }
+	static addPildoraToList(pildora) {
+		const list = document.getElementById('pildora-list')
 
-    // FUNCTION borrar la PILDORA de la tabla
-    static deletePildora(el){
-        if(el.classList.contains('delete')){
-            el.parentElement.parentElement.remove();
-        }
-    }
+		const row = document.createElement('tr')
 
-    // FUNCTION mostar ALERTAS
-    static showAlerts(message,className){
-        // CREATE alerta en un DIV  con todas las propiedades
-        const div = document.createElement('div');
-        div.className = `alert alert-${className}`;
-        // añadir mensajes en el DIV
-        div.appendChild(document.createTextNode(message));
-        // añadir el DIV en el DOM
-        const container = document.querySelector('.container');
-        const form = document.querySelector('#pildora-form');
-        container.insertBefore(div,form);
+		row.innerHTML = `
+    <td>${pildora.nombre}</td>
+    <td>${pildora.descripcion}</td>
+    <td>${pildora.fechac}</td>
+	<td>${pildora.fechap}</td>
+	<td><input type="radio" name="tab" value="igottwo" />
+	<label for="html">Presentado</label>
+		</td>
+    <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+    `
 
-         // Mostrar las alarmas durante 3 segundos
-        // setTimeout(() => document.querySelector('.alert').remove(), 3000);
-    }
-} 
+		list.appendChild(row)
+	}
+}
 
+// Event: Display Books
+UI.displayPildoras()
 
-// EVENT: mostrar PILDORAS
-document.addEventListener('DOMContentLoaded',displayPildoras);
+// Event: Add a Book
+document.querySelector('#pildora-form').addEventListener('submit', addAPildora, false)
 
-// EVENT: añadir PILDORAS A LA LISTA
- document.querySelector('#pildora-form').addEventListener('submit',(e) => {
-    
-    // PREVENT DEFAULT
-    e.preventDefault();
+function addAPildora(e) {
+	// prevent actual submission
+	e.preventDefault()
 
-    // OBTENER  valores (value)
-    
-    const nombre = document.querySelector('#nombre').value;
-    const descripcion = document.querySelector('#descripcion').value;
-    const fecha_presentacion = document.querySelector('#fecha_presentacion').value;
-    const estado = document.querySelector('#estado').value;
+	// Get Form Values
+	const nombre = document.getElementById('nombre').value
+	const descripcion = document.getElementById('descripcion').value
+	const fechac = document.getElementById('fechac').value
 
-    //VALIDACIONES
+	if (!nombre || !descripcion || !fechac) {
+		UI.showAlert('Please enter correct details', 'danger')
+		return
+	}
 
-    if(nombre === '' || descripcion === '' || fecha_presentacion === '' || estado === '') {
-        UI.showAlerts('Por favor rellene los campos...','danger');
-    } else {
-        // creamos el OBJETO pildora ("pildoras")
-        const pildora = new Pildora(nombre,descripcion,fecha_presentacion,estado);
+	// Instantiate a new Pildora object
+	const pildora = new Pildora(nombre, descripcion, fechac)
 
-        // añadir pildora a la lista
-        UI.addPildoraToList(pildora);
+	// Add pildora object to UI
+	UI.addPildoraToList(pildora)
 
-        // salvar Pildora en el LOCAL STORAGE
-        Store.addPildora(pildora);
+	// Add pildora to store
+	Store.addPildora(pildora)
 
-        // MOSTAR mensaje de exito SHOW SUCCESS MESSAGE
-        UI.showAlerts('Pildora añadida','success');
+	UI.showAlert('Pildora Añadida', 'success')
 
-        // LIMPIAR  los campos
-        UI.clearFields();
-    }
+	// Clear fields
+	UI.clearFields()
+}
 
-}); 
+document.getElementById('pildora-list').addEventListener('click', handleRemove)
+function handleRemove(e) {
+	// Remove pildora from UI
+	UI.deletePildora(e.target)
+	UI.showAlert('Pildora Borrada', 'success')
 
-// EVENT: quitar una Pildora
-document.querySelector('#pildora-list').addEventListener('click',(e) => {
-    //BORRAR pildora de UI
-    UI.deletePildora(e.target);
-    //BORRAR pildora del STORE
-    Store.removePildora(e.target.parentElement.previousElementSibling.textContent);
-    //MOSTAR mensaje de exito SUCCES MESSAGE
-    UI.showAlerts('Pildora borrada','success');
-}); 
-
+	// Remove pildora from store
+	Store.removePildora(e.target.parentElement.previousElementSibling.textContent)
+}

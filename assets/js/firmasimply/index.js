@@ -11,9 +11,13 @@ let entrada = document.getElementById("entrada");
     entrada.addEventListener("click", firmarEntrada)
     async function firmarEntrada (e) {
         e.preventDefault()
+        let valorGuardado = document.getElementById('nota').value;
+        if (valorGuardado == '') {
+            valorGuardado = 'no se introdujo la nota';
+        }
         let firmaEntrada = {
             user_id: Auth.getCoder().id,
-            nota: document.getElementById('nota'),
+            nota: valorGuardado,
             estado: 1 // 1 para entrada, 0 para salida
         };
         Asistencia.firmar(firmaEntrada);
@@ -25,9 +29,13 @@ let salida = document.getElementById("salida");
     salida.addEventListener("click", firmarSalida)
     async function firmarSalida (e) {
         e.preventDefault()
+        let valorGuardado = document.getElementById('nota').value;
+        if (valorGuardado == '') {
+            valorGuardado = 'no se introdujo la nota';
+        }
         let firmaSalida = {
             user_id: Auth.getCoder().id,
-            nota: document.getElementById('nota'),
+            nota: valorGuardado,
             estado: 0 // 1 para entrada, 0 para salida
     };
     Asistencia.firmar(firmaSalida);
