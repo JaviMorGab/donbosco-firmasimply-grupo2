@@ -21,7 +21,7 @@ class task {
 		this.categoria_id = categoria_id;
 	}
 }
-
+mostrarTareas()
 async function mostrarTareas() {
 	
 		const  listadoTareas = await Tarea.getListadoTareas();
@@ -30,10 +30,10 @@ async function mostrarTareas() {
 		const row = document.createElement('tr')
 		row.innerHTML = `
 		<th scope="row"><input type="checkbox" id="checkTareas" checked/></th>
-		<td>${Tarea.titulo}</td>
-		<td>${Tarea.descripcion}</td>
-		<td>${Tarea.estado}</td>
-		<td>${Tarea.categoria_id}</td>
+		<td>${listadoTareas.titulo}</td>
+		<td>${listadoTareas.descripcion}</td>
+		<td>${listadoTareas.estado}</td>
+		<td>${listadoTareas.categoria_id}</td>
 		<td><a href="#" class="tm-product-delete-link" id="borrar2"><i class="far fa-trash-alt tm-product-delete-icon borrar"></i></a></td>
 		`;
 		list.appendChild(row);
@@ -43,6 +43,7 @@ async function mostrarTareas() {
 		// 	console.log("completadas: " + contadorCompletadas);
 		// }
 	}
+	console.log(listadoTareas.titulo)
 	console.log(mostrarTareas())
 class UI {
 	
