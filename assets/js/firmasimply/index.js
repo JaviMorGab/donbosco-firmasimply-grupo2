@@ -78,3 +78,20 @@ for(let i = 0; i < 4; i++){
 // Funcionalidad mostrar Listado Tareas
 
 // Funcionalidad mostrar Listado Píldoras
+let listaPild = await Pildora.getListadoPildoras();
+let listaUltimasPildoras = listaPild.slice(listaPild.length -6).reverse();
+console.log(listaPild);
+
+let bodyPildoras = document.getElementById('cuerpoPildoras');
+
+for(let i=0; i<6; i++){
+    let bloquePildora = document.createElement('tr');
+    //bloquePildora.classList.add("media", "tm-notification-item");
+    bloquePildora.innerHTML = `<th scope="row"><b> ${listaUltimasPildoras[i].nombre}</b></th>
+                                <td><b>${listaUltimasPildoras[i].descripcion}</b></td>
+                                <td><b>${listaUltimasPildoras[i].fecha_presentacion}</b></td> 
+                                <td><b>${listaUltimasPildoras[i].created_at}</b></td>
+                                <td><b>${listaUltimasPildoras[i].estado}</b></td> `;
+    bodyPildoras.appendChild(bloquePildora);
+}
+
